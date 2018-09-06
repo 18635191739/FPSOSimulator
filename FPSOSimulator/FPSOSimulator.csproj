@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE00AEF1-5FAE-48DC-905C-B8F160295634}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FPSOSimulator</RootNamespace>
+    <AssemblyName>FPSOSimulator</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.11.0.0.0\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Excel, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.BatchParserClient, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="S7OPCACCCESS, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\S7OPCACCCESS.dll</HintPath>
+    </Reference>
+    <Reference Include="SocketHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\SocketHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TeeChart">
+      <HintPath>Controls\TeeChart.dll</HintPath>
+    </Reference>
+    <Reference Include="VBCbutton">
+      <HintPath>Controls\VBCbutton.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\CButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CButton.Designer.cs" />
+    <Compile Include="Controls\CCButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CCButton.Designer.cs" />
+    <Compile Include="Controls\CLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CLabel.Designer.cs" />
+    <Compile Include="Controls\CPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CPanel.Designer.cs" />
+    <Compile Include="Controls\CPicturebox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CPicturebox.designer.cs" />
+    <Compile Include="Controls\Ctextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Ctextbox.Designer.cs" />
+    <Compile Include="Controls\NumberText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NumberText.Designer.cs" />
+    <Compile Include="Controls\NumBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NumBox.Designer.cs" />
+    <Compile Include="Controls\WaterEffectControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\WaterEffectControl.Designer.cs" />
+    <Compile Include="DataBase\DataTable2List.cs" />
+    <Compile Include="DataBase\SQLHelper.cs" />
+    <Compile Include="FormInquire\InquireBase.cs" />
+    <Compile Include="FormInquire\InquireRefresher.cs" />
+    <Compile Include="Forms\frm3DPic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm3DPic.designer.cs">
+      <DependentUpon>frm3DPic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmBack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmBack.designer.cs">
+      <DependentUpon>FrmBack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDefectImg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDefectImg.Designer.cs">
+      <DependentUpon>frmDefectImg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmException.cs" />
+    <Compile Include="Forms\FrmFresh.cs" />
+    <Compile Include="Forms\NFRMDefectInfoSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NFRMDefectInfoSet.Designer.cs">
+      <DependentUpon>NFRMDefectInfoSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NFRMAlarm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NFRMAlarm.Designer.cs">
+      <DependentUpon>NFRMAlarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NFRMParasSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NFRMParasSet.Designer.cs">
+      <DependentUpon>NFRMParasSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NFRMDefectHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NFRMDefectHistory.Designer.cs">
+      <DependentUpon>NFRMDefectHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UIClass.cs" />
+    <Compile Include="MyClass\MyPubClass.cs" />
+    <Compile Include="MyClass\NumericalIteration.cs" />
+    <Compile Include="MyClass\UIDataBase.cs" />
+    <Compile Include="MyClass\AccessHelper.cs" />
+    <Compile Include="MyClass\ConnectSharedFolder.cs" />
+    <Compile Include="MyClass\FolderService.cs" />
+    <Compile Include="MyClass\MyEncoding.cs" />
+    <Compile Include="MyClass\NPOIHelper.cs" />
+    <Compile Include="MyClass\SQLDBMode.cs" />
+    <Compile Include="MyClass\SQLHelper.cs" />
+    <Compile Include="MyClass\StandMode.cs" />
+    <Compile Include="MyClass\UserConfiguration.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MyClass\WriteLog.cs" />
+    <Compile Include="Properties\Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SocketHelper\DemoForm\FrmClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SocketHelper\DemoForm\FrmClient.designer.cs">
+      <DependentUpon>FrmClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SocketHelper\DemoForm\FrmServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SocketHelper\DemoForm\FrmServer.designer.cs">
+      <DependentUpon>FrmServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SocketHelper\Helper\ImageHelper.cs" />
+    <Compile Include="SocketHelper\Helper\MD5Helper.cs" />
+    <Compile Include="SocketHelper\Helper\SerHelper.cs" />
+    <Compile Include="SocketHelper\OtherClass\ControlTag.cs" />
+    <Compile Include="SocketHelper\OtherClass\EnumClass.cs" />
+    <Compile Include="SocketHelper\OtherClass\IntegerOrString.cs" />
+    <Compile Include="SocketHelper\TCP\AxTcpClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SocketHelper\TCP\AxTcpClient.Designer.cs">
+      <DependentUpon>AxTcpClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SocketHelper\TCP\AxTcpServer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SocketHelper\TCP\AxTcpServer.Designer.cs">
+      <DependentUpon>AxTcpServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SocketHelper\UDP\AxUdpClient.cs" />
+    <Compile Include="SocketHelper\UDP\AxUdpClient.Designer.cs">
+      <DependentUpon>AxUdpClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SocketHelper\UDP\IDataCell.cs" />
+    <Compile Include="SocketHelper\UDP\UdpLibrary.cs" />
+    <Compile Include="ZedGraph\ArrowObj.cs" />
+    <Compile Include="ZedGraph\Axis.cs" />
+    <Compile Include="ZedGraph\AxisLabel.cs" />
+    <Compile Include="ZedGraph\Bar.cs" />
+    <Compile Include="ZedGraph\BarItem.cs" />
+    <Compile Include="ZedGraph\BarSettings.cs" />
+    <Compile Include="ZedGraph\BasicArrayPointList.cs" />
+    <Compile Include="ZedGraph\Border.cs" />
+    <Compile Include="ZedGraph\BoxObj.cs" />
+    <Compile Include="ZedGraph\Chart.cs" />
+    <Compile Include="ZedGraph\CollectionPlus.cs" />
+    <Compile Include="ZedGraph\ColorSymbolRotator.cs" />
+    <Compile Include="ZedGraph\CurveItem.cs" />
+    <Compile Include="ZedGraph\CurveList.cs" />
+    <Compile Include="ZedGraph\DataSourcePointList.cs" />
+    <Compile Include="ZedGraph\DateAsOrdinalScale.cs" />
+    <Compile Include="ZedGraph\DateScale.cs" />
+    <Compile Include="ZedGraph\EllipseObj.cs" />
+    <Compile Include="ZedGraph\ErrorBar.cs" />
+    <Compile Include="ZedGraph\ErrorBarItem.cs" />
+    <Compile Include="ZedGraph\ExponentScale.cs" />
+    <Compile Include="ZedGraph\Fill.cs" />
+    <Compile Include="ZedGraph\FilteredPointList.cs" />
+    <Compile Include="ZedGraph\FontSpec.cs" />
+    <Compile Include="ZedGraph\GapLabel.cs" />
+    <Compile Include="ZedGraph\GasGaugeNeedle.cs" />
+    <Compile Include="ZedGraph\GasGaugeRegion.cs" />
+    <Compile Include="ZedGraph\GraphObj.cs" />
+    <Compile Include="ZedGraph\GraphObjList.cs" />
+    <Compile Include="ZedGraph\GraphPane.cs" />
+    <Compile Include="ZedGraph\HiLowBar.cs" />
+    <Compile Include="ZedGraph\HiLowBarItem.cs" />
+    <Compile Include="ZedGraph\HSBColor.cs" />
+    <Compile Include="ZedGraph\ImageObj.cs" />
+    <Compile Include="ZedGraph\IPointList.cs" />
+    <Compile Include="ZedGraph\IPointListEdit.cs" />
+    <Compile Include="ZedGraph\JapaneseCandleStick.cs" />
+    <Compile Include="ZedGraph\JapaneseCandleStickItem.cs" />
+    <Compile Include="ZedGraph\Label.cs" />
+    <Compile Include="ZedGraph\Legend.cs" />
+    <Compile Include="ZedGraph\Line.cs" />
+    <Compile Include="ZedGraph\LinearAsOrdinalScale.cs" />
+    <Compile Include="ZedGraph\LinearScale.cs" />
+    <Compile Include="ZedGraph\LineBase.cs" />
+    <Compile Include="ZedGraph\LineItem.cs" />
+    <Compile Include="ZedGraph\LineObj.cs" />
+    <Compile Include="ZedGraph\Link.cs" />
+    <Compile Include="ZedGraph\Location.cs" />
+    <Compile Include="ZedGraph\LogScale.cs" />
+    <Compile Include="ZedGraph\MajorGrid.cs" />
+    <Compile Include="ZedGraph\MajorTic.cs" />
+    <Compile Include="ZedGraph\Margin.cs" />
+    <Compile Include="ZedGraph\MasterPane.cs" />
+    <Compile Include="ZedGraph\MinorGrid.cs" />
+    <Compile Include="ZedGraph\MinorTic.cs" />
+    <Compile Include="ZedGraph\NoDupePointList.cs" />
+    <Compile Include="ZedGraph\OHLCBar.cs" />
+    <Compile Include="ZedGraph\OHLCBarItem.cs" />
+    <Compile Include="ZedGraph\OrdinalScale.cs" />
+    <Compile Include="ZedGraph\PaneBase.cs" />
+    <Compile Include="ZedGraph\PaneLayoutMgr.cs" />
+    <Compile Include="ZedGraph\PaneList.cs" />
+    <Compile Include="ZedGraph\PieItem.cs" />
+    <Compile Include="ZedGraph\PointD.cs" />
+    <Compile Include="ZedGraph\PointPair.cs" />
+    <Compile Include="ZedGraph\PointPair4.cs" />
+    <Compile Include="ZedGraph\PointPairBase.cs" />
+    <Compile Include="ZedGraph\PointPairCV.cs" />
+    <Compile Include="ZedGraph\PointPairList.cs" />
+    <Compile Include="ZedGraph\PolyObj.cs" />
+    <Compile Include="ZedGraph\RadarPointList.cs" />
+    <Compile Include="ZedGraph\RollingPointPairList.cs" />
+    <Compile Include="ZedGraph\SampleMultiPointList.cs" />
+    <Compile Include="ZedGraph\SamplePointList.cs" />
+    <Compile Include="ZedGraph\Scale.cs" />
+    <Compile Include="ZedGraph\ScaleState.cs" />
+    <Compile Include="ZedGraph\ScaleStateList.cs" />
+    <Compile Include="ZedGraph\ScrollRange.cs" />
+    <Compile Include="ZedGraph\ScrollRangeList.cs" />
+    <Compile Include="ZedGraph\Selection.cs" />
+    <Compile Include="ZedGraph\StickItem.cs" />
+    <Compile Include="ZedGraph\StockPointList.cs" />
+    <Compile Include="ZedGraph\StockPt.cs" />
+    <Compile Include="ZedGraph\Symbol.cs" />
+    <Compile Include="ZedGraph\TextObj.cs" />
+    <Compile Include="ZedGraph\TextScale.cs" />
+    <Compile Include="ZedGraph\Types.cs" />
+    <Compile Include="ZedGraph\ValueHandler.cs" />
+    <Compile Include="ZedGraph\X2Axis.cs" />
+    <Compile Include="ZedGraph\XAxis.cs" />
+    <Compile Include="ZedGraph\XDate.cs" />
+    <Compile Include="ZedGraph\Y2Axis.cs" />
+    <Compile Include="ZedGraph\Y2AxisList.cs" />
+    <Compile Include="ZedGraph\YAxis.cs" />
+    <Compile Include="ZedGraph\YAxisList.cs" />
+    <Compile Include="ZedGraph\ZedGraphControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZedGraph\ZedGraphControl.Designer.cs" />
+    <Compile Include="ZedGraph\ZedGraphException.cs" />
+    <Compile Include="ZedGraph\ZoomState.cs" />
+    <Compile Include="ZedGraph\ZoomStateStack.cs" />
+    <EmbeddedResource Include="Controls\CButton.resx" />
+    <EmbeddedResource Include="Forms\frm3DPic.resx">
+      <DependentUpon>frm3DPic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmBack.resx">
+      <DependentUpon>FrmBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmBase.resx">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDefectImg.resx">
+      <DependentUpon>frmDefectImg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NFRMDefectInfoSet.resx">
+      <DependentUpon>NFRMDefectInfoSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NFRMAlarm.resx">
+      <DependentUpon>NFRMAlarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NFRMParasSet.resx">
+      <DependentUpon>NFRMParasSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NFRMDefectHistory.resx">
+      <DependentUpon>NFRMDefectHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SocketHelper\DemoForm\FrmClient.resx">
+      <DependentUpon>FrmClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SocketHelper\DemoForm\FrmServer.resx">
+      <DependentUpon>FrmServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SocketHelper\UDP\AxUdpClient.resx">
+      <DependentUpon>AxUdpClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZedGraph\ZedGraphControl.resx" />
+    <EmbeddedResource Include="ZedGraph\ZedGraphLocale.de.resx" />
+    <EmbeddedResource Include="ZedGraph\ZedGraphLocale.es.resx" />
+    <EmbeddedResource Include="ZedGraph\ZedGraphLocale.fr.resx" />
+    <EmbeddedResource Include="ZedGraph\ZedGraphLocale.hu.resx" />
+    <EmbeddedResource Include="ZedGraph\ZedGraphLocale.it.resx" />
+    <EmbeddedResource Include="ZedGraph\ZedGraphLocale.ja.resx" />
+    <EmbeddedResource Include="ZedGraph\ZedGraphLocale.pt.resx" />
+    <EmbeddedResource Include="ZedGraph\ZedGraphLocale.resx" />
+    <EmbeddedResource Include="ZedGraph\ZedGraphLocale.ru.resx" />
+    <EmbeddedResource Include="ZedGraph\ZedGraphLocale.sv.resx" />
+    <EmbeddedResource Include="ZedGraph\ZedGraphLocale.tr.resx" />
+    <EmbeddedResource Include="ZedGraph\ZedGraphLocale.tw.resx" />
+    <EmbeddedResource Include="ZedGraph\ZedGraphLocale.zh-cn.resx" />
+    <EmbeddedResource Include="ZedGraph\ZedGraphLocale.zh-tw.resx" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADODB">
+      <Guid>{2A75196C-D9EB-4129-B803-931327F72D5C}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="ADOX">
+      <Guid>{00000600-0000-0010-8000-00AA006D2EA4}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
